@@ -344,6 +344,62 @@
     }
     .proj-link:hover { color: var(--accent-dark); }
 
+    /* ── CASE STUDY ──────────────────────────────── */
+    .case-study-banner {
+      background: linear-gradient(135deg, #0f1a0f 0%, #0d1f1a 100%);
+      border-radius: var(--radius-lg); padding: 40px 48px;
+      border: 1px solid rgba(255,255,255,0.06); margin-bottom: 40px;
+      display: flex; align-items: center; justify-content: space-between; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cs-banner-left {}
+    .cs-banner-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
+    .cs-banner-title { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .cs-banner-sub { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 480px; line-height: 1.6; }
+    .cs-banner-right { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cs-screenshots {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 14px; margin-bottom: 40px;
+    }
+    .cs-screenshot {
+      border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+      box-shadow: var(--shadow); background: var(--surface2);
+    }
+    .cs-screenshot.tall { grid-row: span 2; }
+    .cs-screenshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .cs-screenshot-label {
+      font-size: 11px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      padding: 8px 12px; background: var(--surface); border-top: 1px solid var(--border);
+    }
+    .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .cs-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm);
+    }
+    .cs-block-full { grid-column: span 2; }
+    .cs-block-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .cs-block-title { font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; letter-spacing: -0.2px; }
+    .cs-block p { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+    .cs-block ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+    .cs-block ul li { font-size: 14px; color: var(--text-secondary); line-height: 1.6; padding-left: 16px; position: relative; }
+    .cs-block ul li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+    .cs-tech-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .cs-tech-pill { font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 100px; background: var(--surface2); border: 1px solid var(--border); color: var(--text-secondary); }
+    .cs-outcome {
+      background: linear-gradient(135deg, #0f1a0f, #0d1f1a);
+      border-radius: var(--radius); padding: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .cs-outcome .cs-block-label { color: #4ade80; }
+    .cs-outcome p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.75; }
+    @media (max-width: 760px) {
+      .cs-screenshots { grid-template-columns: 1fr; }
+      .cs-screenshot.tall { grid-row: span 1; }
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-block-full { grid-column: span 1; }
+      .case-study-banner { padding: 28px 24px; }
+    }
+
     /* ── TESTIMONIALS ────────────────────────────── */
     .testimonials-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -494,6 +550,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#casestudy">Case Study</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact" class="nav-cta">Contact Me</a></li>
     </ul>
@@ -1039,6 +1096,128 @@
 
 <hr class="section-divider" />
 
+<!-- ═══ CASE STUDY ═══════════════════════════════════════ -->
+<hr class="section-divider" />
+<section class="section" id="casestudy">
+  <div class="container">
+    <p class="section-label">Case Study</p>
+    <h2 class="section-title">Lonestar Bark Co.</h2>
+    <p class="section-subtitle">Building a full-stack marketplace for premium dog walking in Dallas — from concept to production.</p>
+
+    <!-- Banner -->
+    <div class="case-study-banner">
+      <div class="cs-banner-left">
+        <div class="cs-banner-label">Full-Stack Product · Dallas, TX</div>
+        <div class="cs-banner-title">Professional Pet Care, Peace of Mind.</div>
+        <div class="cs-banner-sub">A three-portal operations platform replacing manual workflows with a centralized system for bookings, payments, workforce coordination, and financial performance tracking.</div>
+      </div>
+      <div class="cs-banner-right">
+        <a href="https://lonestarbarkco.com" target="_blank" rel="noopener" class="btn btn-primary">View Live Site</a>
+        <span class="proj-status live" style="align-self:center;">Live</span>
+      </div>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="cs-screenshots">
+      <div class="cs-screenshot tall">
+        <img src="lbc-hero.png" alt="Lonestar Bark Co. homepage" />
+        <div class="cs-screenshot-label">Homepage</div>
+      </div>
+      <div class="cs-screenshot">
+        <img src="lbc-booking.png" alt="Client booking interface" />
+        <div class="cs-screenshot-label">Client Booking</div>
+      </div>
+      <div class="cs-screenshot">
+        <img src="lbc-login.png" alt="Role selection login" />
+        <div class="cs-screenshot-label">Multi-Portal Login</div>
+      </div>
+      <div class="cs-screenshot">
+        <img src="lbc-financials.png" alt="Admin financials dashboard" />
+        <div class="cs-screenshot-label">Admin Financials</div>
+      </div>
+      <div class="cs-screenshot">
+        <img src="lbc-pricing.png" alt="Pricing page" />
+        <div class="cs-screenshot-label">Pricing & Loyalty</div>
+      </div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="cs-grid">
+
+      <div class="cs-block">
+        <div class="cs-block-label">The Problem</div>
+        <div class="cs-block-title">Manual operations don't scale — and Rover doesn't build trust.</div>
+        <p>High-end dog walking services run on phone calls, texts, and spreadsheets. As demand grows, that breaks down fast. Existing platforms like Rover introduce a different problem: clients don't know who's walking their dog. There was a clear gap for a branded, transparent, owner-operated platform.</p>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-block-label">The Solution</div>
+        <div class="cs-block-title">Three portals. One system. Built to scale.</div>
+        <p>Lonestar Bark Co. is a fully integrated platform with role-specific portals for clients, walkers, and admins — each with their own interface, permissions, and workflows. Clients book and pay. Walkers manage their schedules and earnings. Admins see everything.</p>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-block-label">Key Features</div>
+        <div class="cs-block-title">Client Portal</div>
+        <ul>
+          <li>Online booking with recurring schedule support and 24-hour notice enforcement</li>
+          <li>Stripe payments with real-time payment state syncing</li>
+          <li>Lonestar Loyalty punch card — 10 walks, get one free</li>
+          <li>Messaging, invoices, and event-triggered email notifications</li>
+        </ul>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-block-label">Key Features</div>
+        <div class="cs-block-title">Walker & Admin Portals</div>
+        <ul>
+          <li>Walker availability management, earnings tracking, and shift trading</li>
+          <li>Admin dashboard with KPIs, all-bookings view, and walk assignment</li>
+          <li>Full financial reporting — revenue, gross profit, margin, and payroll</li>
+          <li>Audit logs and Supabase row-level security across all data</li>
+        </ul>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-block-label">My Role</div>
+        <div class="cs-block-title">End-to-end product ownership</div>
+        <p>I owned the entire product — concept, system architecture, UX/UI design, Supabase auth flows, Stripe integration, all three dashboards, and QA. Built using AI-assisted development across 350+ commits over 22 development sessions. No external engineering team.</p>
+      </div>
+
+      <div class="cs-block">
+        <div class="cs-block-label">Tech Stack & Business Model</div>
+        <div class="cs-block-title">Built for production from day one</div>
+        <div class="cs-tech-pills">
+          <span class="cs-tech-pill">React</span>
+          <span class="cs-tech-pill">Supabase (Postgres + Auth)</span>
+          <span class="cs-tech-pill">Stripe</span>
+          <span class="cs-tech-pill">Netlify</span>
+          <span class="cs-tech-pill">Row-Level Security</span>
+          <span class="cs-tech-pill">Event-Triggered Email</span>
+        </div>
+        <p style="margin-top:14px;">$30 / 30-min · $45 / 60-min · 20% meet & greet discount · Loyalty rewards · Walker pay ~$35/hr</p>
+      </div>
+
+      <div class="cs-block cs-block-full">
+        <div class="cs-block-label">Challenges</div>
+        <div class="cs-block-title">The hard parts</div>
+        <ul style="flex-direction:row;flex-wrap:wrap;gap:12px;">
+          <li style="flex:1;min-width:260px;">Stripe integration and keeping payment state synced reliably across booking actions, cancellations, and refunds without dropping events.</li>
+          <li style="flex:1;min-width:260px;">Building reliable event-driven email triggers that fire correctly across every booking lifecycle action — confirmations, reminders, cancellations, and receipts.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Outcome -->
+    <div class="cs-outcome">
+      <div class="cs-block-label">Outcome</div>
+      <p>A fully functional, production-deployed operations platform built to support multi-walker growth from day one. Lonestar Bark Co. transforms a local service into a data-driven business — with real clients, real bookings, and the operational infrastructure to scale.</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══ TESTIMONIALS ════════════════════════════════════ -->
 <section class="section" id="testimonials">
   <div class="container">
@@ -1169,6 +1348,14 @@
       <div class="contact-info">
         <p>I'm open to project manager, operations, and product roles — especially at companies building in tech, hospitality-tech, or AI. If you want someone who can run a project and ship the product, let's talk.</p>
         <div class="contact-links">
+          <a href="https://www.linkedin.com/in/jimmy-cannon" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div>
+              <div class="contact-link-text">linkedin.com/in/jimmy-cannon</div>
+              <div class="contact-link-sub">Connect on LinkedIn</div>
+            </div>
+          </a>
+
           <a href="mailto:williamjamescannon@gmail.com" class="contact-link">
             <div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div>
@@ -1221,7 +1408,7 @@
 <!-- ═══ FOOTER ══════════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <p class="footer-left"><strong>William "Jimmy" Cannon</strong> · Dallas, TX · williamjamescannon@gmail.com</p>
+    <p class="footer-left"><strong>William "Jimmy" Cannon</strong> · Dallas, TX · williamjamescannon@gmail.com · <a href="https://www.linkedin.com/in/jimmy-cannon" target="_blank" rel="noopener" style="color:inherit;">LinkedIn</a></p>
     <div class="footer-right">
       <span>Built with</span>
       <span class="badge">Claude AI</span>
