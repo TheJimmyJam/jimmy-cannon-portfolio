@@ -338,6 +338,40 @@
       padding-top: 10px; border-top: 1px solid var(--border);
     }
 
+    /* ── TESTIMONIALS ────────────────────────────── */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
+    }
+    .testimonial-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 16px;
+      position: relative;
+    }
+    .testimonial-card.funny {
+      border-color: #fde68a; background: #fffbeb;
+    }
+    .testimonial-quote-mark {
+      font-size: 52px; line-height: 1; color: var(--border);
+      font-family: Georgia, serif; position: absolute; top: 16px; right: 20px;
+      user-select: none;
+    }
+    .testimonial-card.funny .testimonial-quote-mark { color: #fcd34d; }
+    .testimonial-text {
+      font-size: 14.5px; color: var(--text-secondary); line-height: 1.75;
+      font-style: italic; flex: 1;
+    }
+    .testimonial-attribution { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .testimonial-card.funny .testimonial-avatar { background: #fef3c7; border-color: #fde68a; }
+    .testimonial-name { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+    .testimonial-title { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+
     /* ── EDUCATION + VOLUNTEER ───────────────────── */
     .edu-vol-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .card-plain {
@@ -451,6 +485,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact" class="nav-cta">Contact Me</a></li>
     </ul>
   </div>
@@ -529,42 +564,42 @@
       </div>
       <div class="about-card">
         <div class="about-card-item">
-          <div class="about-icon" style="background:#eff6ff;">📍</div>
+          <div class="about-icon" style="background:#eff6ff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <div class="about-card-text-label">Location</div>
             <div class="about-card-text-value">Dallas, TX</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#f0fdf4;">📞</div>
+          <div class="about-icon" style="background:#f0fdf4;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="about-card-text-label">Phone</div>
             <div class="about-card-text-value">(214) 830-2432</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#faf5ff;">✉️</div>
+          <div class="about-icon" style="background:#faf5ff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <div class="about-card-text-label">Email</div>
             <div class="about-card-text-value">wcannon83@gmail.com</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#fff7ed;">🎓</div>
+          <div class="about-icon" style="background:#fff7ed;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
           <div>
             <div class="about-card-text-label">Education</div>
             <div class="about-card-text-value">BBA, St. Edward's University</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#fef9c3;">🌐</div>
+          <div class="about-icon" style="background:#fef9c3;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div>
             <div class="about-card-text-label">Languages</div>
             <div class="about-card-text-value">English, Spanish (conversational)</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#fdf2f8;">🎯</div>
+          <div class="about-icon" style="background:#fdf2f8;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
           <div>
             <div class="about-card-text-label">Targeting</div>
             <div class="about-card-text-value">PM · Operations · Tech-Forward Roles</div>
@@ -587,7 +622,7 @@
     <!-- AI Skills Banner -->
     <div class="ai-banner">
       <div class="ai-banner-header">
-        <div class="ai-banner-icon">🤖</div>
+        <div class="ai-banner-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2v1h2a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-1v2a2 2 0 0 1-2 2h-2v1a2 2 0 0 1-4 0v-1H8a2 2 0 0 1-2-2v-2H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1V6a2 2 0 0 1 2-2h2V4a2 2 0 0 1 2-2z"/><circle cx="9" cy="10" r="1" fill="rgba(255,255,255,0.85)"/><circle cx="15" cy="10" r="1" fill="rgba(255,255,255,0.85)"/><path d="M9 14s1 1.5 3 1.5 3-1.5 3-1.5"/></svg></div>
         <div>
           <div class="ai-banner-label">New & differentiating</div>
           <div class="ai-banner-title">AI-Augmented Development</div>
@@ -926,7 +961,7 @@
 
       <div class="proj-card">
         <div class="proj-card-top">
-          <div class="proj-icon" style="background:#fff7ed;">🐾</div>
+          <div class="proj-icon" style="background:#fff7ed;"></div>
           <span class="proj-status live">Live</span>
         </div>
         <div class="proj-title">Lonestar Bark Co.</div>
@@ -944,7 +979,7 @@
 
       <div class="proj-card">
         <div class="proj-card-top">
-          <div class="proj-icon" style="background:#eff6ff;">🚀</div>
+          <div class="proj-icon" style="background:#eff6ff;"></div>
           <span class="proj-status live">Live</span>
         </div>
         <div class="proj-title">Federation 26</div>
@@ -961,7 +996,7 @@
 
       <div class="proj-card">
         <div class="proj-card-top">
-          <div class="proj-icon" style="background:#faf5ff;">⚡</div>
+          <div class="proj-icon" style="background:#faf5ff;"></div>
           <span class="proj-status live">Live</span>
         </div>
         <div class="proj-title">Cannon's Code</div>
@@ -978,7 +1013,7 @@
 
       <div class="proj-card">
         <div class="proj-card-top">
-          <div class="proj-icon" style="background:#fff1f2;">🧢</div>
+          <div class="proj-icon" style="background:#fff1f2;"></div>
           <span class="proj-status live">Live</span>
         </div>
         <div class="proj-title">Custom Hat Retail Website</div>
@@ -990,6 +1025,69 @@
         <div class="proj-sessions">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           3 development sessions
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ═══ TESTIMONIALS ════════════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">What People Are Saying</h2>
+    <p class="section-subtitle">Feedback from colleagues, clients, and at least one very satisfied rescue dog.</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">[Placeholder] Jimmy brought a level of ownership to our integration process that I rarely see. He didn't just manage the project — he understood it deeply and drove it to completion faster than anyone on the team thought possible.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-avatar">👤</div>
+          <div>
+            <div class="testimonial-name">Colleague Name</div>
+            <div class="testimonial-title">Title · Company</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">[Placeholder] Working with Jimmy was one of the best decisions we made. He runs operations the way a founder would — with full accountability. Our team performed better with him in the room.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-avatar">👤</div>
+          <div>
+            <div class="testimonial-name">Colleague Name</div>
+            <div class="testimonial-title">Title · Company</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">[Placeholder] Jimmy has a rare combination of strategic thinking and operational follow-through. He built systems that outlasted him — and that's the mark of a great operator.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-avatar">👤</div>
+          <div>
+            <div class="testimonial-name">Colleague Name</div>
+            <div class="testimonial-title">Title · Company</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card funny">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text">Talk about being a lifesaver! Not only is Jimmy proficient with technology, but when I was hungry and homeless, he gave me food and shelter. He's dog's best friend.</p>
+        <div class="testimonial-attribution">
+          <div class="testimonial-avatar">🐾</div>
+          <div>
+            <div class="testimonial-name">Clifford</div>
+            <div class="testimonial-title">2-year-old Labradoodle · Rescued, Dallas TX</div>
+          </div>
         </div>
       </div>
 
@@ -1043,21 +1141,21 @@
         <p>I'm open to project manager, operations, and product roles — especially at companies building in tech, hospitality-tech, or AI. If you want someone who can run a project and ship the product, let's talk.</p>
         <div class="contact-links">
           <a href="tel:2148302432" class="contact-link">
-            <div class="contact-link-icon">📞</div>
+            <div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div>
               <div class="contact-link-text">(214) 830-2432</div>
               <div class="contact-link-sub">Call or text</div>
             </div>
           </a>
           <a href="mailto:wcannon83@gmail.com" class="contact-link">
-            <div class="contact-link-icon">✉️</div>
+            <div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div>
               <div class="contact-link-text">wcannon83@gmail.com</div>
               <div class="contact-link-sub">Email directly</div>
             </div>
           </a>
           <a href="Jimmy-Cannon-Resume.pdf" download class="contact-link">
-            <div class="contact-link-icon">📄</div>
+            <div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
             <div>
               <div class="contact-link-text">Download Resume</div>
               <div class="contact-link-sub">PDF · Updated 2025</div>
