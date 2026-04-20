@@ -38,7 +38,7 @@ exports.handler = async (event) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Portfolio Contact <onboarding@resend.dev>',
+        from: 'Portfolio Contact <noreply@lonestarbarkco.com>',
         to: ['williamjamescannon@gmail.com'],
         reply_to: email,
         subject: `Portfolio Contact: ${subject}`,
@@ -68,10 +68,12 @@ exports.handler = async (event) => {
       }),
     });
 
+    const resBody = await res.json();
+    console.log('Resend status:', res.status);
+    console.log('Resend response:', JSON.stringify(resBody));
     if (!res.ok) {
-      const err = await res.json();
-      console.error('Resend error:', err);
-      return { statusCode: 500, body: JSON.stringify({ error: 'Failed to send email' }) };
+      console.error('Resend error:', resBody);
+      return { statusCode: 500, body: JSON.stringify({ error: resBody?.message || 'Failed to send email' }) };
     }
 
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
