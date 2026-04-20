@@ -39,7 +39,7 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify({
         from: 'Portfolio Contact <onboarding@resend.dev>',
-        to: ['wcannon83@gmail.com'],
+        to: ['williamjamescannon@gmail.com'],
         reply_to: email,
         subject: `Portfolio Contact: ${subject}`,
         html: `
