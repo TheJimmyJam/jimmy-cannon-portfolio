@@ -240,14 +240,31 @@
     }
 
     /* ── SKILLS GRID ─────────────────────────────── */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
     .skill-chip {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 10px; padding: 14px 16px; box-shadow: var(--shadow-sm);
-      display: flex; align-items: center; gap: 10px;
+      display: flex; flex-direction: column; gap: 0;
+      cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+      user-select: none;
     }
+    .skill-chip:hover { border-color: #c4c4c8; box-shadow: var(--shadow); }
+    .skill-chip.open { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
+    .skill-chip-header { display: flex; align-items: center; gap: 10px; }
     .skill-chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .skill-chip-text { font-size: 13.5px; font-weight: 500; color: var(--text-primary); }
+    .skill-chip-text { font-size: 13.5px; font-weight: 500; color: var(--text-primary); flex: 1; }
+    .skill-chip-arrow {
+      font-size: 12px; color: var(--text-muted); flex-shrink: 0;
+      transition: transform 0.25s; display: inline-block;
+    }
+    .skill-chip.open .skill-chip-arrow { transform: rotate(90deg); }
+    .skill-chip-blurb {
+      font-size: 12.5px; color: var(--text-secondary); line-height: 1.65;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding-top 0.25s;
+      padding-top: 0;
+    }
+    .skill-chip.open .skill-chip-blurb { max-height: 300px; padding-top: 10px; }
 
     /* ── EXPERIENCE ──────────────────────────────── */
     .exp-list { display: flex; flex-direction: column; gap: 0; }
@@ -594,18 +611,107 @@
 
     <!-- Traditional Skills -->
     <p class="section-label" style="margin-bottom: 16px;">Core Competencies</p>
-    <div class="skills-grid">
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Project & Program Management</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">AI-Augmented Operations & Workflow Automation</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Claude AI, Agentic Agents & Skills</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Vibe Coding & Prompt Engineering</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Process Optimization & Systems Integration</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Salesforce & Data Analysis</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Operations & Staff Leadership</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Customer Success & Retention</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Strategic Planning & Execution</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Marketing & Brand Development</span></div>
-      <div class="skill-chip"><span class="skill-chip-dot"></span><span class="skill-chip-text">Google Workspace & Automated Spreadsheets</span></div>
+    <div class="skills-grid" id="coreSkillsGrid">
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Project & Program Management</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">At me&u USA, managed end-to-end POS integrations from contract handoff to live activation — 2–3 accounts weekly. Set the U.S. company record for fastest integration at 11 days. Maintained full Salesforce pipeline hygiene and tracked every onboarding stage across a growing client portfolio.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">AI-Augmented Operations & Workflow Automation</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Used Claude AI at Prestige to automate operational documentation, draft communications, and cut admin overhead. At me&u, built vibe-coded tracking spreadsheets that eliminated manual reporting. Applied AI research tools to investment analysis and content strategy across multiple roles.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Claude AI, Agentic Agents & Skills</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Shipped three production apps using Claude as a development partner — Lonestar Bark Co. (full-stack dog-walking platform), Federation 26 (multiplayer space trading game), and Cannon's Code (custom prompt management app). Also built Claude Skills and automated workflows used in daily operations.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Vibe Coding & Prompt Engineering</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Used vibe coding to build automated sales spreadsheets at me&u that cut manual reporting time. Independently shipped full-stack apps — including a Supabase-backed platform with auth, row-level security, and admin dashboards — through structured AI collaboration, without a traditional engineering team.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Process Optimization & Systems Integration</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Designed an early online ordering system for {33} Restaurant Group in 2012 — ahead of industry adoption — and scaled it across multiple locations. At me&u, streamlined POS integration workflows to cut activation time. At Prestige, built a logistics pipeline shipping 1,250+ devices weekly with zero disruption.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Salesforce & Data Analysis</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Managed the full customer lifecycle in Salesforce at me&u — onboarding stages, account health, and pipeline hygiene. Used Claude AI to synthesize account data and draft client updates. Applied data analysis to investment research and built automated spreadsheets that surfaced performance data across teams.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Operations & Staff Leadership</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Led daily operations across six restaurant locations with 125+ staff at {33} Restaurant Group. Launched Cedar & Vine and trained 50+ front and back-of-house employees. At Prestige, directed 8 in-office agents and oversaw a field network of 500+ representatives nationwide.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Customer Success & Retention</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Owned account health at me&u — onboarding, ongoing analytics, and client relationships for a U.S. restaurant portfolio. Built repeat business and community loyalty at Cedar & Vine, sustaining 10% net profitability. At Momentum Solar, maintained a 45%+ closing rate through trust-based relationship selling.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Strategic Planning & Execution</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Launched Cedar & Vine from concept to $185K in month-one sales. Grew Palio's Pizza Café from $700K to $1.3M over seven years. Built the operational framework for Prestige's logistics and compliance pipeline. Applied structured planning to every venture — restaurants, solar, tech startups, and AI-built products.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Marketing & Brand Development</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Built the Cedar & Vine brand from scratch — concept, name, interior design, social media, and local marketing. Oversaw {33} Restaurant Group's social presence. Directed brand and design for a custom hat e-commerce site. Grew an online entertainment audience to 6,200+ followers with 1M+ minutes viewed in 7 months.</div>
+      </div>
+
+      <div class="skill-chip" onclick="toggleChip(this)">
+        <div class="skill-chip-header">
+          <span class="skill-chip-dot"></span>
+          <span class="skill-chip-text">Google Workspace & Automated Spreadsheets</span>
+          <span class="skill-chip-arrow">›</span>
+        </div>
+        <div class="skill-chip-blurb">Built vibe-coded automated tracking spreadsheets at me&u that improved team reporting visibility and eliminated manual data entry. Used Google Workspace for operational reporting and compliance tracking at Prestige. Applied automated spreadsheet design across multiple roles to surface KPIs and drive faster decisions.</div>
+      </div>
+
     </div>
 
     <!-- Technical Skills -->
@@ -1011,6 +1117,13 @@
   // To use Resend instead, swap FORM_ENDPOINT for your
   // serverless function URL.
   // ─────────────────────────────────────────────────────────
+  // ── SKILL CHIP ACCORDION ──────────────────────────────
+  function toggleChip(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('#coreSkillsGrid .skill-chip').forEach(c => c.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
   const FORM_ENDPOINT = '/.netlify/functions/contact';
 
   const form = document.getElementById('contactForm');
