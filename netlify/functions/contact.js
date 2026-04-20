@@ -26,6 +26,7 @@ exports.handler = async (event) => {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
+  console.log('API key present:', !!apiKey, '| length:', apiKey?.length ?? 0);
   if (!apiKey) {
     return { statusCode: 500, body: JSON.stringify({ error: 'Server configuration error' }) };
   }
