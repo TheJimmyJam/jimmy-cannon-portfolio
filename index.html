@@ -90,7 +90,19 @@
       background: radial-gradient(ellipse 700px 500px at 60% 50%, rgba(37,99,235,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-inner {
+      max-width: 1000px; margin: 0 auto; position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between; gap: 48px;
+    }
+    .hero-content { flex: 1; min-width: 0; }
+    .hero-photo {
+      flex-shrink: 0;
+      width: 220px; height: 220px; border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 8px rgba(37,99,235,0.12), 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 7px;
       font-size: 12px; font-weight: 600; letter-spacing: 0.6px;
@@ -393,6 +405,8 @@
       .nav-inner { padding: 0 20px; }
       .nav-links li:not(:last-child) { display: none; }
       .hero { padding: 72px 20px 64px; }
+      .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
+      .hero-photo { width: 110px; height: 110px; }
       .hero h1 { letter-spacing: -1.2px; }
       .hero-stats { gap: 24px; }
       .section { padding: 56px 0; }
@@ -428,45 +442,50 @@
 <!-- ═══ HERO ════════════════════════════════════════════ -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Open to new opportunities
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Open to new opportunities
+      </div>
+      <h1>
+        <span class="name">William "Jimmy" Cannon</span>
+        <span class="title">Project Manager &amp; Operations Leader</span>
+      </h1>
+      <p class="hero-sub">
+        10+ years launching businesses, managing cross-functional teams, and delivering measurable outcomes across tech, hospitality, and sales — now augmented with hands-on AI product development skills.
+      </p>
+      <div class="hero-actions">
+        <a href="Jimmy-Cannon-Resume.pdf" download class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+        <a href="#contact" class="btn btn-outline">Let's Talk</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Years experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3.84</div>
+          <div class="hero-stat-label">BBA GPA, cum laude</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">$1.3M</div>
+          <div class="hero-stat-label">Restaurant revenue built</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6</div>
+          <div class="hero-stat-label">AI projects shipped</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">Dallas, TX</div>
+          <div class="hero-stat-label">Based in</div>
+        </div>
+      </div>
     </div>
-    <h1>
-      <span class="name">William "Jimmy" Cannon</span>
-      <span class="title">Project Manager &amp; Operations Leader</span>
-    </h1>
-    <p class="hero-sub">
-      10+ years launching businesses, managing cross-functional teams, and delivering measurable outcomes across tech, hospitality, and sales — now augmented with hands-on AI product development skills.
-    </p>
-    <div class="hero-actions">
-      <a href="Jimmy-Cannon-Resume.pdf" download class="btn btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download Resume
-      </a>
-      <a href="#contact" class="btn btn-outline">Let's Talk</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">10+</div>
-        <div class="hero-stat-label">Years experience</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">3.84</div>
-        <div class="hero-stat-label">BBA GPA, cum laude</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">$1.3M</div>
-        <div class="hero-stat-label">Restaurant revenue built</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">6</div>
-        <div class="hero-stat-label">AI projects shipped</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">Dallas, TX</div>
-        <div class="hero-stat-label">Based in</div>
-      </div>
+    <div class="hero-photo">
+      <img src="jimmy.JPG" alt="Jimmy Cannon" />
     </div>
   </div>
 </header>
