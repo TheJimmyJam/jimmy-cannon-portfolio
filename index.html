@@ -151,7 +151,8 @@
     .btn-ghost:hover { background: var(--surface2); color: var(--text-primary); }
 
     .hero-stats {
-      display: flex; gap: 40px; flex-wrap: wrap;
+      display: grid; grid-template-columns: auto auto auto auto;
+      column-gap: 40px; row-gap: 24px;
       padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08);
     }
     .hero-stat {}
@@ -159,6 +160,7 @@
       font-size: 26px; font-weight: 700; color: #fff; letter-spacing: -0.5px;
     }
     .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .hero-stat-quote { font-size: 10px; color: rgba(255,255,255,0.22); margin-top: 5px; font-style: italic; max-width: 260px; line-height: 1.45; }
 
     /* ── SECTION HEADERS ─────────────────────────── */
     .section { padding: 80px 0; }
@@ -593,12 +595,23 @@
           <div class="hero-stat-label">People managed</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">6</div>
+          <div class="hero-stat-num">11</div>
           <div class="hero-stat-label">AI projects shipped</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1,313</div>
+          <div class="hero-stat-label">GitHub commits*</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label">Businesses created</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-num">Dallas, TX</div>
           <div class="hero-stat-label">Based in</div>
+        </div>
+        <div style="grid-column: 1 / 3; margin-top: -16px;">
+          <div class="hero-stat-quote">*"Jimmy is maybe the most committed person I know. We could be at a party, and Jimmy would be off in the corner committing by himself." — anonymous</div>
         </div>
       </div>
     </div>
@@ -619,7 +632,7 @@
           I'm a project manager and operations leader with 10+ years of experience launching and scaling businesses across tech, hospitality, and sales. I've run six-location restaurant groups, integrated POS systems at a tech startup, sold solar at a 45% close rate, and currently lead operations for a nationwide wireless distribution network. I don't manage projects from a distance — I own them end-to-end.
         </p>
         <p>
-          What makes me different is how I work. I'm an <strong>early adopter of AI-driven workflows</strong> — fluent across Claude, ChatGPT, Gemini, Midjourney, and other leading platforms, with hands-on experience in agentic development, vibe coding, and prompt engineering. I've shipped a LegalTech SaaS platform targeting a $350B/yr industry, a multiplayer game with a full in-game economy, and a custom prompt management app — all built through human-AI collaboration with real users and production deployments.
+          What makes me different is how I work. I'm an <strong>early adopter of AI-driven workflows</strong> — fluent across Claude, ChatGPT, Gemini, Midjourney, and other leading platforms, with hands-on experience in agentic development, vibe coding, and prompt engineering. I've shipped 11 AI-augmented projects — from a LegalTech SaaS platform targeting a $350B/yr industry and a first-person 3D browser game, to a custom medical billing system for a real Dallas physician, a dog walking operations platform, and a multiplayer trivia app — all built through human-AI collaboration with real users and production deployments.
         </p>
         <p>
           I'm conversational in Spanish, a cum laude BBA graduate, and I bring the same accountability to a Jira board that I brought to running 125 employees across six restaurants.
@@ -738,7 +751,7 @@
           <span class="skill-chip-text">AI Platforms & Agentic Tools</span>
           <span class="skill-chip-arrow">›</span>
         </div>
-        <div class="skill-chip-blurb">Fluent across Claude, ChatGPT, Gemini, Midjourney, and other leading AI platforms. Used Claude for agentic development — shipping LexAlloc, Federation 26, and Cannon's Code. Used ChatGPT and Gemini for research, drafting, and analysis. Used Midjourney for AI image generation and visual asset creation.</div>
+        <div class="skill-chip-blurb">Fluent across Claude, ChatGPT, Gemini, Midjourney, and other leading AI platforms. Used Claude for agentic development — shipping LexAlloc, Federation 26, Cannon's Code, Lonestar Bark, and more. Used ChatGPT and Gemini for research, drafting, and analysis. Used Midjourney for AI image generation and visual asset creation.</div>
       </div>
 
       <div class="skill-chip" onclick="toggleChip(this)">
@@ -1104,6 +1117,86 @@
         <div class="proj-sessions">
           <span style="display:flex;align-items:center;gap:6px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Active build</span>
           <a href="https://conundrum2026.netlify.app" target="_blank" rel="noopener" class="proj-link">View Live <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <span class="proj-status live">Live</span>
+        </div>
+        <div class="proj-title">Lonestar Bark</div>
+        <p class="proj-desc">Full-stack dog walking management platform for a real Dallas business. Includes a client-facing booking portal, a walker portal with W-9 document uploads, and a full admin dashboard — all backed by Supabase with auth, scheduling, and live operations management.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React</span><span class="proj-tag">Supabase</span>
+          <span class="proj-tag">Full-Stack</span><span class="proj-tag">Booking System</span>
+          <span class="proj-tag">Dallas</span>
+        </div>
+        <div class="proj-sessions">
+          <span style="display:flex;align-items:center;gap:6px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Active build</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <span class="proj-status live">Live</span>
+        </div>
+        <div class="proj-title">Dr. Aronoff Medical Biller</div>
+        <p class="proj-desc">Custom medical billing system built for a Dallas physician. Uploads insurance PDFs, auto-extracts patient and charge data with AI parsing, sends branded invoices by email, and collects payments via Stripe through a patient portal. Includes automatic reminders and an AR aging report (0–30, 31–60, 61–90, 90+ days). FastAPI backend on Render, React frontend on Netlify.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python / FastAPI</span><span class="proj-tag">React</span>
+          <span class="proj-tag">Stripe</span><span class="proj-tag">Supabase</span>
+          <span class="proj-tag">PDF Extraction</span><span class="proj-tag">MedTech</span>
+        </div>
+        <div class="proj-sessions">
+          <span style="display:flex;align-items:center;gap:6px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Real client deployment</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <span class="proj-status live">Live</span>
+        </div>
+        <div class="proj-title">Looter Shooter v1</div>
+        <p class="proj-desc">First-person PVE looter-shooter running entirely in the browser. Built with Three.js — low-poly 3D environment, enemy AI state machines (Scavenger and Brute types), loot drop system, harvestable resource nodes, persistent inventory, and a full HUD. Designed all game systems from scratch.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Three.js</span><span class="proj-tag">3D / WebGL</span>
+          <span class="proj-tag">Enemy AI</span><span class="proj-tag">Game Design</span>
+          <span class="proj-tag">JavaScript</span>
+        </div>
+        <div class="proj-sessions">
+          <span style="display:flex;align-items:center;gap:6px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Active build</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <span class="proj-status wip">In Progress</span>
+        </div>
+        <div class="proj-title">Project Ibbotson</div>
+        <p class="proj-desc">Collaborative scientific book platform. Researchers join via invite-only access, exchange messages, share files, and manage structured contributions to a shared publication. Built on React + Supabase with four core tables (users, invites, messages, files) and role-based access control.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React</span><span class="proj-tag">Supabase</span>
+          <span class="proj-tag">Collaboration</span><span class="proj-tag">Publishing</span>
+          <span class="proj-tag">Invite-Only Auth</span>
+        </div>
+        <div class="proj-sessions">
+          <span style="display:flex;align-items:center;gap:6px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Active build</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-card-top">
+          <span class="proj-status live">Live</span>
+        </div>
+        <div class="proj-title">UES Sales Portal</div>
+        <p class="proj-desc">Internal CRM built for a utility energy sales organization. Manages contacts, reps, and admin roles with full XLSX electric bill uploads for customer onboarding. Tracks sales pipelines and customer data with a branded UI in UES's orange-and-navy identity. Supabase-backed with Supabase Storage for file handling.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React</span><span class="proj-tag">Supabase</span>
+          <span class="proj-tag">XLSX Parsing</span><span class="proj-tag">Sales CRM</span>
+          <span class="proj-tag">Energy / Utility</span>
+        </div>
+        <div class="proj-sessions">
+          <span style="display:flex;align-items:center;gap:6px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Internal deployment</span>
         </div>
       </div>
 
