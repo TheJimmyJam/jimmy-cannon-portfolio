@@ -2091,12 +2091,16 @@ gsap.from('.cs-outcome p', {
   scrollTrigger: { trigger: '.cs-outcome', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
-// ── TESTIMONIALS ──────────────────────────────────────
-ScrollTrigger.batch('.testimonial-card', {
-  start: 'top 92%',
-  onEnter: batch => gsap.from(batch, {
-    autoAlpha: 0, y: 44, duration: 0.55, stagger: 0.1, ease: 'power3.out'
-  })
+// ── TESTIMONIALS: one at a time as user scrolls ───────
+gsap.utils.toArray('.testimonial-card').forEach(card => {
+  gsap.from(card, {
+    autoAlpha: 0, y: 50, duration: 0.65, ease: 'power3.out',
+    scrollTrigger: {
+      trigger: card,
+      start: 'top 88%',
+      toggleActions: 'play none none none'
+    }
+  });
 });
 
 // ── CONTACT SECTION ───────────────────────────────────
