@@ -2034,15 +2034,60 @@ gsap.utils.toArray('.cs-screenshot').forEach((card, i) => {
   });
 });
 
-// Content blocks stagger up
-gsap.from('.cs-block', {
-  autoAlpha: 0, y: 32, duration: 0.55, stagger: 0.09, ease: 'power2.out',
-  scrollTrigger: { trigger: '.cs-block', start: 'top 88%', toggleActions: 'play none none none' }
+// ── CS BLOCKS: alternating left/right deal-in, triggered per card ──
+gsap.utils.toArray('.cs-block').forEach((block, i) => {
+  const isFull = block.classList.contains('cs-block-full');
+  const isLeft = i % 2 === 0;
+
+  if (isFull) {
+    // Challenges (full-width): split reveal — label slides from left, content from right
+    gsap.from(block.querySelector('.cs-block-label'), {
+      autoAlpha: 0, x: -40, duration: 0.6, ease: 'power3.out',
+      scrollTrigger: { trigger: block, start: 'top 87%', toggleActions: 'play none none none' }
+    });
+    gsap.from(block.querySelector('.cs-block-title'), {
+      autoAlpha: 0, x: -30, duration: 0.6, delay: 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: block, start: 'top 87%', toggleActions: 'play none none none' }
+    });
+    gsap.from(block.querySelectorAll('li'), {
+      autoAlpha: 0, y: 24, duration: 0.55, stagger: 0.12, delay: 0.2, ease: 'power2.out',
+      scrollTrigger: { trigger: block, start: 'top 87%', toggleActions: 'play none none none' }
+    });
+  } else {
+    // Regular blocks: slide in from left or right column with tilt
+    gsap.from(block, {
+      autoAlpha: 0,
+      x: isLeft ? -55 : 55,
+      y: 18,
+      rotation: isLeft ? -2.5 : 2.5,
+      scale: 0.96,
+      duration: 0.72,
+      ease: 'back.out(1.5)',
+      transformOrigin: isLeft ? 'left center' : 'right center',
+      scrollTrigger: {
+        trigger: block,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    });
+    // Stagger list items inside if any
+    const listItems = block.querySelectorAll('li');
+    if (listItems.length) {
+      gsap.from(listItems, {
+        autoAlpha: 0, x: isLeft ? -20 : 20, duration: 0.4, stagger: 0.1, delay: 0.3, ease: 'power2.out',
+        scrollTrigger: { trigger: block, start: 'top 88%', toggleActions: 'play none none none' }
+      });
+    }
+  }
 });
 
-// Outcome panel
+// ── OUTCOME: dramatic scale-up with glow pulse ──
 gsap.from('.cs-outcome', {
-  autoAlpha: 0, y: 36, duration: 0.65, ease: 'power3.out',
+  autoAlpha: 0, scale: 0.95, y: 40, duration: 0.8, ease: 'power3.out',
+  scrollTrigger: { trigger: '.cs-outcome', start: 'top 88%', toggleActions: 'play none none none' }
+});
+gsap.from('.cs-outcome p', {
+  autoAlpha: 0, y: 20, duration: 0.65, delay: 0.35, ease: 'power2.out',
   scrollTrigger: { trigger: '.cs-outcome', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
