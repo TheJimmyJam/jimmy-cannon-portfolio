@@ -2010,12 +2010,13 @@
 <!-- GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap/dist/ScrambleTextPlugin.min.js"></script>
 <script>
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 // ── HERO ENTRANCE — set all initial states first ───────
 gsap.set('.hero-badge',       { autoAlpha: 0, y: -16 });
-gsap.set('.hero h1 .name',    { autoAlpha: 0, y: 36 });
+gsap.set('.hero h1 .name',    { autoAlpha: 1 }); // ScrambleText handles reveal
 gsap.set('.hero h1 .title',   { autoAlpha: 0, y: 28 });
 gsap.set('.hero-sub',         { autoAlpha: 0, y: 24 });
 gsap.set('.hero-actions',     { autoAlpha: 0, y: 20 });
@@ -2028,7 +2029,17 @@ const heroTl = gsap.timeline({ delay: 0.15 });
 heroTl
   .to('.hero-photo-wrap',  { autoAlpha: 1, scale: 1,  duration: 0.9,  ease: 'power3.out' }, 0)
   .to('.hero-badge',       { autoAlpha: 1, y: 0,      duration: 0.55, ease: 'power2.out' }, 0.1)
-  .to('.hero h1 .name',    { autoAlpha: 1, y: 0,      duration: 0.7,  ease: 'power3.out' }, 0.25)
+  .to('.hero h1 .name', {
+    duration: 1.6,
+    scrambleText: {
+      text: 'William “Jimmy” Cannon',
+      chars: '!@#$%^&*<>?/|\\{}[]0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+      revealDelay: 0.2,
+      tweenLength: false,
+      speed: 0.45
+    },
+    ease: 'none'
+  }, 0.2)
   .to('.hero h1 .title',   { autoAlpha: 1, y: 0,      duration: 0.65, ease: 'power3.out' }, 0.42)
   .to('.hero-sub',         { autoAlpha: 1, y: 0,      duration: 0.6,  ease: 'power2.out' }, 0.58)
   .to('.hero-actions',     { autoAlpha: 1, y: 0,      duration: 0.5,  ease: 'back.out(1.4)' }, 0.72)
