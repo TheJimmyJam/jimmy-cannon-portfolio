@@ -2002,15 +2002,48 @@ gsap.from('.proj-card-v2', {
 });
 
 // ── CASE STUDY ────────────────────────────────────────
+// Banner slides up
 gsap.from('.case-study-banner', {
-  autoAlpha: 0, y: 40, duration: 0.7, ease: 'power3.out',
+  autoAlpha: 0, y: 44, duration: 0.75, ease: 'power3.out',
   scrollTrigger: { trigger: '.case-study-banner', start: 'top 88%', toggleActions: 'play none none none' }
 });
-ScrollTrigger.batch('.cs-screenshot', {
-  start: 'top 92%',
-  onEnter: batch => gsap.from(batch, {
-    autoAlpha: 0, y: 40, scale: 0.97, duration: 0.6, stagger: 0.12, ease: 'power2.out'
-  })
+
+// Screenshot cards — "deal in" like playing cards from a deck
+// Each starts rotated + offset, snaps into place with back.out bounce
+const csDealFrom = [
+  { x: -80, y: 60, rotation: -12, scale: 0.82 },  // tall left card
+  { x:  30, y: -50, rotation:  7, scale: 0.85 },  // top right
+  { x:  70, y:  50, rotation: -6, scale: 0.84 },  // bottom right
+];
+gsap.utils.toArray('.cs-screenshot').forEach((card, i) => {
+  const from = csDealFrom[i] || { x: 0, y: 40, rotation: 0, scale: 0.9 };
+  gsap.from(card, {
+    autoAlpha: 0,
+    x: from.x, y: from.y,
+    rotation: from.rotation,
+    scale: from.scale,
+    duration: 0.85,
+    delay: i * 0.18,
+    ease: 'back.out(1.4)',
+    transformOrigin: 'center center',
+    scrollTrigger: {
+      trigger: '.cs-screenshots',
+      start: 'top 82%',
+      toggleActions: 'play none none none'
+    }
+  });
+});
+
+// Content blocks stagger up
+gsap.from('.cs-block', {
+  autoAlpha: 0, y: 32, duration: 0.55, stagger: 0.09, ease: 'power2.out',
+  scrollTrigger: { trigger: '.cs-block', start: 'top 88%', toggleActions: 'play none none none' }
+});
+
+// Outcome panel
+gsap.from('.cs-outcome', {
+  autoAlpha: 0, y: 36, duration: 0.65, ease: 'power3.out',
+  scrollTrigger: { trigger: '.cs-outcome', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
 // ── TESTIMONIALS ──────────────────────────────────────
