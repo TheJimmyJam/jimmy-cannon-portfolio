@@ -1973,11 +1973,16 @@ gsap.from('.tech-skills-grid span, .ai-skills-grid span', {
 });
 
 // ── PROJECT CARDS ─────────────────────────────────────
-ScrollTrigger.batch('.proj-card-v2', {
-  start: 'top 90%',
-  onEnter: batch => gsap.from(batch, {
-    autoAlpha: 0, y: 50, scale: 0.97, duration: 0.6, stagger: 0.1, ease: 'power3.out'
-  })
+// Trigger all cards together when the section enters — prevents staggered
+// vertical misalignment from cards triggering at different scroll depths
+gsap.from('.proj-card-v2', {
+  autoAlpha: 0, y: 44, scale: 0.97,
+  duration: 0.6, stagger: 0.07, ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '#projects',
+    start: 'top 82%',
+    toggleActions: 'play none none none'
+  }
 });
 
 // ── CASE STUDY ────────────────────────────────────────
