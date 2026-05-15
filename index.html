@@ -224,22 +224,34 @@
     .about-body p:last-child { margin-bottom: 0; }
     .about-body strong { color: var(--text-primary); font-weight: 600; }
     .about-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow);
+      background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg); padding: 24px 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px);
     }
     .about-card-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .about-card-item:last-child { border-bottom: none; padding-bottom: 0; }
     .about-card-item:first-child { padding-top: 0; }
     .about-icon {
-      width: 36px; height: 36px; border-radius: 8px;
+      width: 38px; height: 38px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       font-size: 16px; flex-shrink: 0;
+      border: 1px solid;
     }
-    .about-card-text-label { font-size: 11px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-    .about-card-text-value { font-size: 14px; color: var(--text-primary); font-weight: 500; margin-top: 1px; }
+    .about-icon--blue {
+      background: rgba(37,99,235,0.14);
+      border-color: rgba(96,165,250,0.25);
+    }
+    .about-icon--teal {
+      background: rgba(20,184,166,0.12);
+      border-color: rgba(45,212,191,0.22);
+    }
+    .about-card-text-label { font-size: 10px; color: rgba(255,255,255,0.38); font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; }
+    .about-card-text-value { font-size: 14px; color: rgba(255,255,255,0.88); font-weight: 500; margin-top: 2px; }
 
     /* ── AI SKILLS HIGHLIGHT ─────────────────────── */
     .ai-banner {
@@ -750,42 +762,42 @@
       </div>
       <div class="about-card">
         <div class="about-card-item">
-          <div class="about-icon" style="background:#eff6ff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="about-icon about-icon--blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <div class="about-card-text-label">Location</div>
             <div class="about-card-text-value">Dallas, TX</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#f0fdf4;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="about-icon about-icon--teal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
           <div>
             <div class="about-card-text-label">Phone</div>
             <div class="about-card-text-value">Available upon request</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#faf5ff;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="about-icon about-icon--blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div>
             <div class="about-card-text-label">Email</div>
             <div class="about-card-text-value">williamjamescannon@gmail.com</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#fff7ed;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="about-icon about-icon--teal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
           <div>
             <div class="about-card-text-label">Education</div>
             <div class="about-card-text-value">BBA, St. Edward's University</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#fef9c3;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div class="about-icon about-icon--blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <div>
             <div class="about-card-text-label">Languages</div>
             <div class="about-card-text-value">English, Spanish (conversational)</div>
           </div>
         </div>
         <div class="about-card-item">
-          <div class="about-icon" style="background:#fdf2f8;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="about-icon about-icon--teal"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
           <div>
             <div class="about-card-text-label">Targeting</div>
             <div class="about-card-text-value">PM · Operations · Tech-Forward Roles</div>
