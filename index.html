@@ -108,9 +108,9 @@
       position: absolute; border-radius: 50%;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: calc(100% + 64px); height: calc(100% + 64px);
-      background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 68%);
-      animation: halo-beat 3.8s ease-in-out infinite;
+      width: calc(100% + 80px); height: calc(100% + 80px);
+      background: radial-gradient(circle, rgba(59,130,246,0.55) 0%, rgba(37,99,235,0.25) 45%, transparent 72%);
+      animation: halo-beat 3.2s ease-in-out infinite;
     }
     /* Inner halo ring */
     .hero-photo-wrap::after {
@@ -118,14 +118,14 @@
       position: absolute; border-radius: 50%;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: calc(100% + 30px); height: calc(100% + 30px);
-      background: radial-gradient(circle, rgba(37,99,235,0.38) 0%, transparent 72%);
-      animation: halo-beat 3.8s ease-in-out infinite;
-      animation-delay: 0.18s;
+      width: calc(100% + 36px); height: calc(100% + 36px);
+      background: radial-gradient(circle, rgba(96,165,250,0.65) 0%, rgba(59,130,246,0.3) 50%, transparent 78%);
+      animation: halo-beat 3.2s ease-in-out infinite;
+      animation-delay: 0.22s;
     }
     @keyframes halo-beat {
-      0%, 100% { opacity: 0.65; transform: translate(-50%, -50%) scale(1); }
-      50%       { opacity: 1;    transform: translate(-50%, -50%) scale(1.07); }
+      0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.12); }
     }
     .hero-photo {
       position: relative; z-index: 1;
@@ -2113,24 +2113,36 @@ gsap.from('.contact-form-wrap', {
   scrollTrigger: { trigger: '.contact-section', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
-// ── STAT NUMBER COUNT-UP ──────────────────────────────
-// Fires once hero timeline completes (on load, not scroll)
-heroTl.call(() => {
-  const stats = [
-    { el: document.querySelectorAll('.hero-stat-num')[3], end: 15, decimals: 0, suffix: '' },       // AI projects
-    { el: document.querySelectorAll('.hero-stat-num')[4], end: 2258, decimals: 0, suffix: '', format: true }, // commits
-    { el: document.querySelectorAll('.hero-stat-num')[5], end: 8, decimals: 0, suffix: '' },        // businesses
-  ];
-  stats.forEach(({ el, end, suffix, format }) => {
-    if (!el) return;
-    gsap.to({ val: 0 }, {
-      val: end, duration: 1.8, ease: 'power2.out',
-      onUpdate: function() {
-        const v = Math.round(this.targets()[0].val);
-        el.textContent = (format ? v.toLocaleString() : v) + suffix;
-      }
+// ── STAT NUMBER COUNT-UP (scroll-triggered) ──────────────────────────────
+// Set placeholder zeros so they don't flash the real number before counting
+(function() {
+  const statEls = document.querySelectorAll('.hero-stat-num');
+  if (statEls[3]) statEls[3].textContent = '0';
+  if (statEls[4]) statEls[4].textContent = '0';
+  if (statEls[5]) statEls[5].textContent = '0';
+})();
+
+ScrollTrigger.create({
+  trigger: '.hero-stats',
+  start: 'top 85%',
+  once: true,
+  onEnter: () => {
+    const stats = [
+      { el: document.querySelectorAll('.hero-stat-num')[3], end: 15, suffix: '' },
+      { el: document.querySelectorAll('.hero-stat-num')[4], end: 2258, suffix: '', format: true },
+      { el: document.querySelectorAll('.hero-stat-num')[5], end: 8, suffix: '' },
+    ];
+    stats.forEach(({ el, end, suffix, format }, i) => {
+      if (!el) return;
+      gsap.to({ val: 0 }, {
+        val: end, duration: 1.8, delay: i * 0.12, ease: 'power2.out',
+        onUpdate: function() {
+          const v = Math.round(this.targets()[0].val);
+          el.textContent = (format ? v.toLocaleString() : v) + suffix;
+        }
+      });
     });
-  });
+  }
 });
 
 </script>
