@@ -2025,7 +2025,7 @@ heroTl.call(() => {
   ];
   stats.forEach(({ el, end, suffix, format }) => {
     if (!el) return;
-    gsap.from({ val: 0 }, {
+    gsap.to({ val: 0 }, {
       val: end, duration: 1.8, ease: 'power2.out',
       onUpdate: function() {
         const v = Math.round(this.targets()[0].val);
