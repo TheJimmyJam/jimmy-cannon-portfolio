@@ -700,7 +700,7 @@
           <div class="hero-stat-label">People managed</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">14</div>
+          <div class="hero-stat-num">15</div>
           <div class="hero-stat-label">AI projects shipped</div>
         </div>
         <div class="hero-stat">
@@ -739,7 +739,7 @@
           I'm a project manager and operations leader with 10+ years of experience launching and scaling businesses across tech, hospitality, and sales. I've run six-location restaurant groups, integrated POS systems at a tech startup, sold solar at a 45% close rate, and currently lead operations for a nationwide wireless distribution network. I don't manage projects from a distance — I own them end-to-end.
         </p>
         <p>
-          What makes me different is how I work. I'm an <strong>early adopter of AI-driven workflows</strong> — fluent across Claude, ChatGPT, Gemini, Midjourney, and other leading platforms, with hands-on experience in agentic development, vibe coding, and prompt engineering. I've shipped 14 AI-augmented projects — from a LegalTech SaaS platform targeting a $350B/yr industry and a self-paced language learning platform covering 15 languages, to a custom medical billing system for a real Dallas physician, a dog walking operations platform, a multiplayer trivia app, and a macOS desktop music app — all built through human-AI collaboration with real users and production deployments.
+          What makes me different is how I work. I'm an <strong>early adopter of AI-driven workflows</strong> — fluent across Claude, ChatGPT, Gemini, Midjourney, and other leading platforms, with hands-on experience in agentic development, vibe coding, and prompt engineering. I've shipped 15 AI-augmented projects — from a LegalTech SaaS platform targeting a $350B/yr industry and a self-paced language learning platform covering 15 languages, to a custom medical billing system for a real Dallas physician, a dog walking operations platform, a multiplayer trivia app, and a macOS desktop music app — all built through human-AI collaboration with real users and production deployments.
         </p>
         <p>
           I'm conversational in Spanish, a cum laude BBA graduate, and I bring the same accountability to a Jira board that I brought to running 125 employees across six restaurants.
@@ -1361,6 +1361,40 @@
           </div>
           <div class="proj-short">E-commerce site for a custom hat brand, built from a written spec</div>
           <div class="proj-tags"><span class="proj-tag">React/JSX</span><span class="proj-tag">E-Commerce</span><span class="proj-tag">Brand Design</span></div>
+        </div>
+      </div>
+
+      <!-- DUG -->
+      <div class="proj-card-v2" onclick="openProject('dug')">
+        <div class="proj-preview" style="background:linear-gradient(140deg,#060a0f 0%,#0b1420 60%,#0e1a2a 100%)">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px">
+            <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(99,179,237,0.45);margin-bottom:2px">Underwriting Marketplace</div>
+            <div style="display:flex;gap:10px;align-items:stretch">
+              <div style="background:rgba(99,179,237,0.08);border:1px solid rgba(99,179,237,0.2);border-radius:8px;padding:8px 10px;width:90px">
+                <div style="font-size:7px;font-weight:700;color:rgba(99,179,237,0.5);text-transform:uppercase;margin-bottom:5px">Job Posted</div>
+                <div style="font-size:8px;font-weight:600;color:#e2edf7;margin-bottom:3px">GL Policy Review</div>
+                <div style="font-size:7px;color:rgba(226,237,247,0.4)">$8K–$12K · Remote</div>
+                <div style="margin-top:6px;display:flex;gap:3px"><div style="background:rgba(99,179,237,0.15);color:#90cdf4;font-size:6px;font-weight:600;padding:2px 5px;border-radius:100px">Open</div></div>
+              </div>
+              <div style="background:rgba(99,179,237,0.05);border:1px solid rgba(99,179,237,0.15);border-radius:8px;padding:8px 10px;width:80px">
+                <div style="width:28px;height:28px;border-radius:50%;background:rgba(99,179,237,0.2);border:1px solid rgba(99,179,237,0.3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#90cdf4;margin-bottom:5px">BV</div>
+                <div style="font-size:7.5px;font-weight:600;color:#e2edf7">B. Volkmer</div>
+                <div style="font-size:6.5px;color:rgba(226,237,247,0.4);margin-top:1px">GL · E&amp;O · D&amp;O</div>
+                <div style="font-size:7px;color:rgba(99,179,237,0.7);margin-top:4px">★ 4.9</div>
+              </div>
+            </div>
+            <div style="font-size:16px;font-weight:700;color:#bee3f8;letter-spacing:-0.3px">DUG</div>
+            <div style="font-size:9px;color:rgba(190,227,248,0.35)">GitHub × Reddit × Uber — for underwriters</div>
+          </div>
+          <div class="proj-explore"><span>Explore →</span></div>
+        </div>
+        <div class="proj-meta">
+          <div class="proj-meta-top">
+            <div class="proj-title">DUG</div>
+            <span class="proj-status live">Live</span>
+          </div>
+          <div class="proj-short">Consulting marketplace for independent underwriters</div>
+          <div class="proj-tags"><span class="proj-tag">Next.js 15</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Supabase</span><span class="proj-tag">InsureTech</span></div>
         </div>
       </div>
 
@@ -2019,7 +2053,7 @@ gsap.from('.contact-form-wrap', {
 // Fires once hero timeline completes (on load, not scroll)
 heroTl.call(() => {
   const stats = [
-    { el: document.querySelectorAll('.hero-stat-num')[3], end: 14, decimals: 0, suffix: '' },       // AI projects
+    { el: document.querySelectorAll('.hero-stat-num')[3], end: 15, decimals: 0, suffix: '' },       // AI projects
     { el: document.querySelectorAll('.hero-stat-num')[4], end: 2258, decimals: 0, suffix: '', format: true }, // commits
     { el: document.querySelectorAll('.hero-stat-num')[5], end: 8, decimals: 0, suffix: '' },        // businesses
   ];
@@ -2198,6 +2232,16 @@ const PROJECTS = {
     previewBg: 'linear-gradient(140deg,#0e0c0a 0%,#1a1612 60%,#1e1a14 100%)',
     previewContent: `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px"><div style="font-size:18px;font-weight:700;color:#e7e0d5;letter-spacing:-0.2px">Custom Hat Store</div><div style="font-size:11px;color:rgba(231,224,213,0.35)">E-Commerce · React/JSX · Brand Design</div></div>`
   }
+  dug: {
+    title: 'DUG — Decentralized Underwriting Group',
+    status: 'live',
+    desc: 'Consulting marketplace for independent underwriters — think GitHub × Reddit × Uber for risk experts. Underwriters build public profiles with specialties and ratings, companies post underwriting jobs, and the platform matches, tracks, and rates the work. Features a full job board, submission + review system, role-based dashboards, and a Dojo practice module where underwriters sharpen skills on real case studies. Built on Next.js 15 App Router with Supabase and 9 database tables.',
+    tags: ['Next.js 15', 'TypeScript', 'Tailwind CSS v4', 'Supabase', 'InsureTech', 'Marketplace'],
+    link: 'https://decentralizedunderwritinggroup.netlify.app',
+    commits: 15,
+    previewBg: 'linear-gradient(140deg,#060a0f 0%,#0b1420 60%,#0e1a2a 100%)',
+    previewContent: `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px"><div style="font-size:20px;font-weight:700;color:#bee3f8;letter-spacing:-0.3px">DUG</div><div style="font-size:11px;color:rgba(190,227,248,0.4)">Decentralized Underwriting Group</div><div style="font-size:10px;color:rgba(190,227,248,0.3);margin-top:4px">GitHub × Reddit × Uber — for underwriters</div></div>`
+  },
 };
 
 // ── MODAL OPEN/CLOSE ──────────────────────────────────
