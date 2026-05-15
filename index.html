@@ -635,26 +635,84 @@
 
     /* ── RESPONSIVE ──────────────────────────────── */
     @media (max-width: 760px) {
-      .container { padding: 0 20px; }
-      .nav-inner { padding: 0 20px; }
+      /* Layout */
+      .container { padding: 0 18px; }
+      .nav-inner { padding: 0 18px; }
       .nav-links li:not(:last-child) { display: none; }
-      .hero { padding: 72px 20px 64px; }
-      .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
-      .hero-photo-wrap { width: 160px; height: 160px; margin-top: 0; }
-      .hero-photo { width: 160px; height: 160px; }
-      .hero h1 { letter-spacing: -1.2px; }
-      .hero-stats { gap: 24px; }
-      .section { padding: 56px 0; }
-      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .section { padding: 52px 0; }
+
+      /* Hero */
+      .hero { padding: 64px 18px 52px; }
+      .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
+      .hero-photo-wrap { width: 100px; height: 100px; margin-top: 0; align-self: flex-start; }
+      .hero-photo { width: 100px; height: 100px; }
+      .hero h1 { font-size: clamp(30px, 9vw, 42px); letter-spacing: -1px; margin-bottom: 14px; }
+      .hero h1 .title { font-size: clamp(16px, 5vw, 22px); }
+      .hero-sub { font-size: 14px; margin-bottom: 28px; }
+      .hero-badge { font-size: 10px; padding: 5px 10px; margin-bottom: 18px; }
+      .btn { font-size: 13px; padding: 10px 18px; }
+
+      /* Hero stats — 2×N grid instead of 4 wide */
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px; row-gap: 20px;
+        padding-top: 28px;
+      }
+      .hero-stat-num { font-size: 20px; }
+      .hero-stat-label { font-size: 11px; }
+      .hero-stat-quote { display: none; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
       .about-card { order: -1; }
+      .about-body p { font-size: 15px; }
+
+      /* AI Banner */
+      .ai-banner { padding: 28px 20px; margin-bottom: 32px; }
+      .ai-banner-title { font-size: 18px; }
+      .ai-banner-desc { font-size: 14px; margin-bottom: 20px; }
+      .ai-banner-icon { width: 38px; height: 38px; font-size: 18px; border-radius: 10px; }
+
+      /* Skills */
+      .skills-grid { grid-template-columns: 1fr; }
+
+      /* Experience */
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
       .exp-dates { font-size: 12px; }
+
+      /* Projects */
       .projects-grid { grid-template-columns: 1fr; }
+      .proj-preview { height: 160px; }
+
+      /* Case study */
+      .case-study-banner { padding: 24px 18px; }
+      .cs-banner-title { font-size: 22px; }
+      .cs-screenshots { grid-template-columns: 1fr; }
+      .cs-screenshot.tall { grid-row: span 1; }
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-block-full { grid-column: span 1; }
+      .cs-block { padding: 20px; }
+
+      /* Testimonials — GSAP pin disabled via JS; cards display normally */
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      /* Education */
       .edu-vol-grid { grid-template-columns: 1fr; }
+
+      /* Contact */
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .form-row { grid-template-columns: 1fr; }
-      footer { padding: 28px 20px; }
+
+      /* Footer */
+      footer { padding: 28px 18px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Very small phones */
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 28px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; column-gap: 12px; }
+      .hero-stat-num { font-size: 18px; }
     }
   </style>
 </head>
@@ -2136,16 +2194,29 @@ gsap.from('.cs-outcome p', {
   scrollTrigger: { trigger: '.cs-outcome', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
-// ── TESTIMONIALS: pinned scroll — reveal one card at a time ─────────────────
+// ── TESTIMONIALS: pinned on desktop, simple scroll on mobile ─────────────────
 (function() {
   const cards = gsap.utils.toArray('.testimonial-card');
 
-  // Hide all cards to start
+  if (window.innerWidth < 768) {
+    // Mobile: simple staggered scroll-in, no pin
+    gsap.set(cards, { autoAlpha: 0, y: 40 });
+    cards.forEach((card, i) => {
+      gsap.to(card, {
+        autoAlpha: 1, y: 0, duration: 0.65, ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+    return;
+  }
+
+  // Desktop: pinned sequential reveal
   gsap.set(cards, { autoAlpha: 0, y: 60, scale: 0.88, rotationX: 12, transformOrigin: 'center bottom' });
 
-  // Each card: 0.22 units to snap in, then 1.0 units of hold before next
-  // With end=+=2900 and 6 cards → total timeline ≈ 7.32 → each unit ≈ 396px
-  // Reveal snaps in over ~87px; hold lasts ~396px of scrolling
   const REVEAL  = 0.22;
   const HOLD    = 1.0;
   const SEGMENT = REVEAL + HOLD;
