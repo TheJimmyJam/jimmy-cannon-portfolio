@@ -2230,50 +2230,21 @@ gsap.from('.cs-outcome p', {
   scrollTrigger: { trigger: '.cs-outcome', start: 'top 88%', toggleActions: 'play none none none' }
 });
 
-// ── TESTIMONIALS: pinned on desktop, simple scroll on mobile ─────────────────
+// ── TESTIMONIALS: simple scroll-triggered reveal per card ────────────────────
 (function() {
   const cards = gsap.utils.toArray('.testimonial-card');
-
-  if (window.innerWidth < 768) {
-    // Mobile: simple staggered scroll-in, no pin
-    gsap.set(cards, { autoAlpha: 0, y: 40 });
-    cards.forEach((card, i) => {
-      gsap.to(card, {
-        autoAlpha: 1, y: 0, duration: 0.65, ease: 'power3.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      });
+  gsap.set(cards, { autoAlpha: 0, y: 40, scale: 0.96 });
+  cards.forEach((card) => {
+    gsap.to(card, {
+      autoAlpha: 1, y: 0, scale: 1,
+      duration: 0.65,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
     });
-    return;
-  }
-
-  // Desktop: pinned sequential reveal
-  gsap.set(cards, { autoAlpha: 0, y: 60, scale: 0.88, rotationX: 12, transformOrigin: 'center bottom' });
-
-  const REVEAL  = 0.22;
-  const HOLD    = 1.0;
-  const SEGMENT = REVEAL + HOLD;
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#testimonials',
-      start: 'top top',
-      end: '+=' + (cards.length * SEGMENT + REVEAL) * 450,
-      pin: true,
-      scrub: 1.2,
-      anticipatePin: 1,
-    }
-  });
-
-  cards.forEach((card, i) => {
-    tl.to(card, {
-      autoAlpha: 1, y: 0, scale: 1, rotationX: 0,
-      duration: REVEAL,
-      ease: 'back.out(1.7)',
-    }, i * SEGMENT);
   });
 })();
 
